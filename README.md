@@ -65,8 +65,8 @@ https://netflix-backend-wpkq.onrender.com
 
 NetFlixClone/
 │
-├── netflix/ # React frontend
-├── backend/ # Node/Express backend
+├── netflix/ 
+├── backend/
 └── README.md
 
 ---
@@ -78,5 +78,5 @@ GitHub: https://github.com/triyangupta
 
 ---
 
-## 📂 Project Structure
+⭐ If you like this project, give it a **star** on GitHub!
 
