@@ -31,16 +31,24 @@ export const Login = async (req, res) => {
         const tokenData = {
             id: user._id
         }
-       const token = await jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1d" });
-        return res.status(200).cookie("token", token, { httpOnly: true }).json({
-            message: `Welcome Back ${user.fullName}`,
-            success: true,
-            user: {
-                _id: user._id,
-                fullName: user.fullName,
-                email: user.email,
-            },
-        });
+        const token = await jwt.sign(tokenData, process.env.JWT_SECRET, { expiresIn: "1d" });
+        return res
+            .status(200)
+            .cookie("token", token, {
+                httpOnly: true,
+                secure: true,
+                sameSite: "None",
+            })
+            .json({
+                message: `Welcome Back ${user.fullName}`,
+                success: true,
+                user: {
+                    _id: user._id,
+                    fullName: user.fullName,
+                    email: user.email,
+                },
+            });
+
 
     } catch (error) {
         console.log(error);
