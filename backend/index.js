@@ -18,11 +18,23 @@ app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use(cookieParser());
 
-const corsOptions={
-     origin: "https://netflix-clone-gamma-pearl-12.vercel.app",
-    credentials:true
-}
-app.use(cors(corsOptions))
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://netflix-clone-gamma-pearl-12.vercel.app"
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 
 //api
 app.use("/api/v1/user",userRoute)   // http://localhost:8080/api/v1/user/register
