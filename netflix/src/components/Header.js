@@ -32,7 +32,7 @@ const Header = () => {
   }
 
   return (
-    <header className="flex absolute z-10 w-[100vw] items-center justify-between bg-gradient-to-b from-black px-4">
+    <header className="flex absolute z-50 w-[100vw] items-center justify-between bg-gradient-to-b from-black px-4">
 
       <img
         className="w-[180px] p-5"
